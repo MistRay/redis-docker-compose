@@ -1,95 +1,107 @@
 version: "3"
-services: 
-    redis-cluster-6380:
-        image: redis:5.0.5-alpine
-        container_name: node-80
-        networks:
-            cluster-net:
-                ipv4_address: 172.15.238.10
-        ports:
-            - "6380:6380"
-            - "16380:16380"
-        volumes:
-            - ./conf/redis-6380.conf:/usr/local/etc/redis/redis.conf
-            - ./log:/var/log/redis
-            - ./data:/data/redis
-        command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
-
-    redis-cluster-6381:
-        image: redis:5.0.5-alpine
-        container_name: node-81
-        networks:
-            cluster-net:
-                ipv4_address: 172.15.238.11
-        ports:
-            - "6381:6381"
-            - "16381:16381"
-        volumes:
-            - ./conf/redis-6381.conf:/usr/local/etc/redis/redis.conf
-            - ./log:/var/log/redis
-            - ./data:/data/redis
-        command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
-
-    redis-cluster-6382:
-        image: redis:5.0.5-alpine
-        container_name: node-82
-        networks:
-            cluster-net:
-                ipv4_address: 172.15.238.12
-        ports:
-            - "6382:6382"
-            - "16382:16382"
-        volumes:
-            - ./conf/redis-6382.conf:/usr/local/etc/redis/redis.conf
-            - ./log:/var/log/redis
-            - ./data:/data/redis
-        command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
-
-    redis-cluster-6383:
-        image: redis:5.0.5-alpine
-        container_name: node-83
-        networks:
-            cluster-net:
-                ipv4_address: 172.15.238.13
-        ports:
-            - "6383:6383"
-            - "16383:16383"
-        volumes:
-            - ./conf/redis-6383.conf:/usr/local/etc/redis/redis.conf
-            - ./log:/var/log/redis
-            - ./data:/data/redis
-        command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
-
-    redis-cluster-6384:
-        image: redis:5.0.5-alpine
-        container_name: node-84
-        networks:
-            cluster-net:
-                ipv4_address: 172.15.238.14
-        ports:
-            - "6384:6384"
-            - "16384:16384"
-        volumes:
-            - ./conf/redis-6384.conf:/usr/local/etc/redis/redis.conf
-            - ./log:/var/log/redis
-            - ./data:/data/redis
-        command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
-
-    redis-cluster-6385:
-        image: redis:5.0.5-alpine
-        container_name: node-85
-        networks:
-            cluster-net:
-                ipv4_address: 172.15.238.15
-        ports:
-            - "6385:6385"
-            - "16385:16385"
-        volumes:
-            - ./conf/redis-6385.conf:/usr/local/etc/redis/redis.conf
-            - ./log:/var/log/redis
-            - ./data:/data/redis
-        command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
-        
+services:
+  redis-cluster-6380:
+    image: redis:5.0.5-alpine
+    container_name: node-80
+    networks:
+      cluster-net:
+        ipv4_address: 172.15.238.10
+    ports:
+      - "6380:6380"
+      - "16380:16380"
+    volumes:
+      - ./conf/redis-6380.conf:/usr/local/etc/redis/redis.conf
+      - ./log:/var/log/redis
+      - ./data:/data/redis
+    command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
+    environment:
+      # 设置时区为上海，否则时间会有问题
+      - TZ=Asia/Shanghai
+  redis-cluster-6381:
+    image: redis:5.0.5-alpine
+    container_name: node-81
+    networks:
+      cluster-net:
+        ipv4_address: 172.15.238.11
+    ports:
+      - "6381:6381"
+      - "16381:16381"
+    volumes:
+      - ./conf/redis-6381.conf:/usr/local/etc/redis/redis.conf
+      - ./log:/var/log/redis
+      - ./data:/data/redis
+    command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
+    environment:
+      # 设置时区为上海，否则时间会有问题
+      - TZ=Asia/Shanghai
+  redis-cluster-6382:
+    image: redis:5.0.5-alpine
+    container_name: node-82
+    networks:
+      cluster-net:
+        ipv4_address: 172.15.238.12
+    ports:
+      - "6382:6382"
+      - "16382:16382"
+    volumes:
+      - ./conf/redis-6382.conf:/usr/local/etc/redis/redis.conf
+      - ./log:/var/log/redis
+      - ./data:/data/redis
+    command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
+    environment:
+      # 设置时区为上海，否则时间会有问题
+      - TZ=Asia/Shanghai
+  redis-cluster-6383:
+    image: redis:5.0.5-alpine
+    container_name: node-83
+    networks:
+      cluster-net:
+        ipv4_address: 172.15.238.13
+    ports:
+      - "6383:6383"
+      - "16383:16383"
+    volumes:
+      - ./conf/redis-6383.conf:/usr/local/etc/redis/redis.conf
+      - ./log:/var/log/redis
+      - ./data:/data/redis
+    command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
+    environment:
+      # 设置时区为上海，否则时间会有问题
+      - TZ=Asia/Shanghai
+  redis-cluster-6384:
+    image: redis:5.0.5-alpine
+    container_name: node-84
+    networks:
+      cluster-net:
+        ipv4_address: 172.15.238.14
+    ports:
+      - "6384:6384"
+      - "16384:16384"
+    volumes:
+      - ./conf/redis-6384.conf:/usr/local/etc/redis/redis.conf
+      - ./log:/var/log/redis
+      - ./data:/data/redis
+    command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
+    environment:
+      # 设置时区为上海，否则时间会有问题
+      - TZ=Asia/Shanghai
+  redis-cluster-6385:
+    image: redis:5.0.5-alpine
+    container_name: node-85
+    networks:
+      cluster-net:
+        ipv4_address: 172.15.238.15
+    ports:
+      - "6385:6385"
+      - "16385:16385"
+    volumes:
+      - ./conf/redis-6385.conf:/usr/local/etc/redis/redis.conf
+      - ./log:/var/log/redis
+      - ./data:/data/redis
+    command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
+    environment:
+      # 设置时区为上海，否则时间会有问题
+      - TZ=Asia/Shanghai
 networks:
   # 创建集群网络，在容器之间通信
   cluster-net:
