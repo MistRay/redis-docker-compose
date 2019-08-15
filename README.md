@@ -43,6 +43,6 @@ cluster-announce-bus-port 16379
 * 关于时区,项目内默认使用了上海时区,需要使用其他时区的同学请自行更改.
 ```yaml
     environment:
-      # 设置时区为上海，否则时间会有问题
+      # 设置时区为上海
       - TZ=Asia/Shanghai
 ```
