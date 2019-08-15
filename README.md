@@ -13,9 +13,11 @@ Redis集群可以把数据分散存储到n个节点中,同时可以对每个节�
 
 ### 快速开始
 
-首先需要安装[docker](https://www.docker.com/),[docker-compose](https://docs.docker.com/compose/install/)及[python3.X](https://www.python.org/downloads/)
+1. 安装依赖: [docker](https://www.docker.com/),[docker-compose](https://docs.docker.com/compose/install/)及[python3.X](https://www.python.org/downloads/)
 
-```
+2. 启动
+``` shell
+# 需在docker-compose.yml所在的文件夹下执行
 docker-compose up -d 
 
 docker exec -it node-80 redis-cli -p 6380 --cluster create 172.16.238.10:6380 172.16.238.11:6381 172.16.238.12:6382 172.16.238.13:6383 172.16.238.14:6384 172.16.238.15:6385 --cluster-replicas 1
@@ -26,7 +28,7 @@ docker exec -it node-80 redis-cli -p 6380 --cluster create 172.16.238.10:6380 17
 * 使用Redis版本为5.0.5-alpine,如有需要请自行更改.  
 > redis官方在redis3.x和redis4.x提供了redis-trib.rb工具方便我们快速搭建集群,在redis5.x中更是可以直接使用redis-cli命令来直接完成集群的一键搭建,省去了redis-trib.rb依赖ruby环境的问题。
 * docker-compose自动组网
-> 使用docker-compose up启动容器后，这些容器都会被加入`{app_name}_default`网络中,但是ip不固定.所以在docker-compose内使用了指定ip地址的方式,使每个容器的ip为定值.
+> 使用docker-compose up启动容器后，这些容器都会被加入`{app_name}_default`网络中,但是ip不固定.所以该项目在docker-compose内使用了指定ip地址的方式,使每个容器的ip为定值.
 * client端节点互通问题  
 在redis配置文件中有如下配置:
 ``` shell
