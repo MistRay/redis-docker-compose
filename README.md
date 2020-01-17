@@ -1,5 +1,5 @@
 # redis-docker-compose
-`使用docker-compose一键搭建Redis集群`
+使用docker-compose一键搭建Redis集群
 
 ### 简介
 
