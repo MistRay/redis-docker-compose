@@ -9,7 +9,7 @@
 ### Redis集群
 Redis集群可以把数据分散存储到n个节点中,同时可以对每个节点做备份,来保障Redis数据的高可用和稳定性
 
-![RedisCluster](https://rancher.com/img/blog/2018/deploying-redis-cluster/01-rancher-redis-cluster-architecture.png)
+![RedisCluster](https://raw.githubusercontent.com/MistRay/mistray.github.io/master/img/post_img/redis_cluster.png)
 
 ### 快速开始
 
