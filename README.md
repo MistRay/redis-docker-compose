@@ -1,4 +1,7 @@
 # redis-docker-compose
+
+![redis-docker-compose](https://github.com/MistRay/mistray.github.io/blob/master/img/docker_redis5.png)
+
 使用docker-compose一键搭建Redis集群
 
 ### 简介
